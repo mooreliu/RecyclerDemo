@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">00^_^</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_context">ContextActivity</string>
+
+    <string name="drawer_open">打开</string>
+    <string name="drawer_close">关闭</string>
+    <string name="desc">关闭\n\n开启\n\n完事儿lll/n/n\n\n\n\n\n\n\n\nn\n\n\nullllll</string>
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+</resources>
