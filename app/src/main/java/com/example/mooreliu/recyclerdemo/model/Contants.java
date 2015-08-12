@@ -45,6 +45,40 @@ public class Contants {
 
     public static String[] page2_imageTitle = {
             "厨房",
+            "广东小吃",
+            "全家福",
+            "大酒窖",
+            "俩人的第一次KFC哦~",
+            "娘子的新衣裳",
+            "大夏天~吃披萨",
+            "大醴陵——状元洲上",
+    };
+
+    public static String[] page2_imageDesciption = {
+            "厨房",
+            "广东小吃",
+            "全家福",
+            "大酒窖",
+            "俩人的第一次KFC哦~",
+            "娘子的新衣裳",
+            "大夏天~吃披萨",
+            "大醴陵——状元洲上",
+    };
+
+    public static Integer[] page3_imageIDs = {
+            R.mipmap.img_cufang,
+            R.mipmap.img_guangdongfood,
+            R.mipmap.img_hometogether,
+            R.mipmap.img_jiujiao,
+            R.mipmap.img_kfc,
+            R.mipmap.img_newdress,
+            R.mipmap.img_pizza,
+            R.mipmap.img_zhuangyuanzhou,
+
+    };
+
+    public static String[] page3_imageTitle = {
+            "厨房",
             "Honey",
             "LongXia",
             "Avavar",
@@ -54,7 +88,7 @@ public class Contants {
             "Lunch",
     };
 
-    public static String[] page2_imageDesciption = {
+    public static String[] page3_imageDesciption = {
             "厨房",
             "Honey",
             "LongXia",

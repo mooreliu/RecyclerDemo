@@ -14,10 +14,10 @@ import android.widget.Toast;
 import com.example.mooreliu.recyclerdemo.R;
 
 public class LoginActivity extends ActionBarActivity {
-    static String id ="111111";
-    static String password = "111111";
-//    static String id ="";
-//    static String password = "";
+//    static String id ="111111";
+//    static String password = "111111";
+    static String id ="";
+    static String password = "";
     TextView tv_id;
     TextView tv_password;
     ImageView iv_img;
@@ -31,17 +31,13 @@ public class LoginActivity extends ActionBarActivity {
         tv_password = (TextView) findViewById(R.id.password);
         iv_img = (ImageView)findViewById(R.id.loginimage);
         iv_img.setImageResource(R.mipmap.imglogin);
-       // setContentView(R.layout.layout_login);
     }
 
     public void signIn(View v) {
         Log.e("Login","signIn!");
         String idInput =  tv_id.getText().toString();
         String passwordInput =  tv_password.getText().toString();
-//        Log.e("Login",idInput);
-//        Log.e("Login",passwordInput);
         if(idInput.equals(id) && passwordInput.equals(password)) {
-//            Log.e("Login","equals!!!!");
             Intent intent = new Intent(LoginActivity.this,MainActivity.class);
             startActivity(intent);
         } else {
