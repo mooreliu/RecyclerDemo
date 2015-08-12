@@ -32,25 +32,34 @@ public class Contants {
     };
 
     public static Integer[] page2_imageIDs = {
-            R.mipmap.img1,
-            R.mipmap.img2,
-            R.mipmap.img3,
-            R.mipmap.img4,
-            R.mipmap.img5,
+            R.mipmap.img_cufang,
+            R.mipmap.img_guangdongfood,
+            R.mipmap.img_hometogether,
+            R.mipmap.img_jiujiao,
+            R.mipmap.img_kfc,
+            R.mipmap.img_newdress,
+            R.mipmap.img_pizza,
+            R.mipmap.img_zhuangyuanzhou,
+
     };
 
     public static String[] page2_imageTitle = {
-            "LoveStory",
+            "厨房",
             "Honey",
             "LongXia",
             "Avavar",
             "Lunch",
-
+            "LongXia",
+            "Avavar",
+            "Lunch",
     };
 
     public static String[] page2_imageDesciption = {
-            "LoveStory",
+            "厨房",
             "Honey",
+            "LongXia",
+            "Avavar",
+            "Lunch",
             "LongXia",
             "Avavar",
             "Lunch",
