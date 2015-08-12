@@ -29,7 +29,30 @@ public class Contants {
             "LongXia",
             "Avavar",
             "Lunch",
+    };
 
+    public static Integer[] page2_imageIDs = {
+            R.mipmap.img1,
+            R.mipmap.img2,
+            R.mipmap.img3,
+            R.mipmap.img4,
+            R.mipmap.img5,
+    };
 
+    public static String[] page2_imageTitle = {
+            "LoveStory",
+            "Honey",
+            "LongXia",
+            "Avavar",
+            "Lunch",
+
+    };
+
+    public static String[] page2_imageDesciption = {
+            "LoveStory",
+            "Honey",
+            "LongXia",
+            "Avavar",
+            "Lunch",
     };
 }

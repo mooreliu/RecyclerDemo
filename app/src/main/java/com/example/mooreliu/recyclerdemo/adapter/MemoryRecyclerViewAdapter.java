@@ -35,10 +35,9 @@ public class MemoryRecyclerViewAdapter extends RecyclerView.Adapter<MemoryRecycl
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         Cll cll = mCllList.get(position);
         viewHolder.cll = cll;
-        viewHolder.bigImageDec.setText(cll.getContent());
-        //viewHolder.meizhiView.setOriginalSize(meizhi.getThumbWidth(), meizhi.getThumbHeight());
         viewHolder.bigimage.setImageResource (cll.getImgUrl());
-
+        viewHolder.bigImageDec.setText(cll.getContent());
+        viewHolder.bigTitle.setText(cll.getTitle());
     }
 
     @Override
@@ -60,15 +59,17 @@ public class MemoryRecyclerViewAdapter extends RecyclerView.Adapter<MemoryRecycl
 
         Cll cll;
         RatioImageView bigimage;
+        TextView bigTitle;
         TextView bigImageDec;
-       // View card;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
             bigimage = (RatioImageView) itemView.findViewById(R.id.big_img);
+            bigTitle = (TextView) itemView.findViewById(R.id.bigimg_title);
             bigImageDec = (TextView) itemView.findViewById(R.id.bigimg_description);
-            bigimage.setOnClickListener(this);
-            bigImageDec.setOnClickListener(this);
+            //bigimage.setOnClickListener(this);
+            //bigImageDec.setOnClickListener(this);
         }
         @Override
         public void onClick(View v) {

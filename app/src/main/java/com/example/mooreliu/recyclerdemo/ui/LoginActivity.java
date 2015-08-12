@@ -14,10 +14,10 @@ import android.widget.Toast;
 import com.example.mooreliu.recyclerdemo.R;
 
 public class LoginActivity extends ActionBarActivity {
-//    static String id ="111111";
-//    static String password = "111111";
-    static String id ="";
-    static String password = "";
+    static String id ="111111";
+    static String password = "111111";
+//    static String id ="";
+//    static String password = "";
     TextView tv_id;
     TextView tv_password;
     ImageView iv_img;

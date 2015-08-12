@@ -1,13 +1,12 @@
 package com.example.mooreliu.recyclerdemo.ui;
 
-import android.content.Intent;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,50 +14,49 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
 import com.example.mooreliu.recyclerdemo.R;
-import com.example.mooreliu.recyclerdemo.adapter.MooreRecyclerViewAdapter;
-import com.example.mooreliu.recyclerdemo.model.Cll;
-import com.example.mooreliu.recyclerdemo.model.Contants;
-import com.example.mooreliu.recyclerdemo.widget.OnCllTouchListener;
 import com.umeng.analytics.MobclickAgent;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
-    private RecyclerView mRecyclerView;
-    private List<Cll> mCllList;
-    private MooreRecyclerViewAdapter mMooreRecyclerViewAdapter;
+
     private Toolbar mToolbar;
     private String[] mPlanetTitles;
     private DrawerLayout mDrawerlayout;
     private ListView mDrawerList;
 
+    private CharSequence mDrawerTitle;
+    private CharSequence mTitle;
 
     //private static int imgNumber = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initData();
+//        Log.e("onCreate", "MainActivity onCreate...................................");
+        mTitle = mDrawerTitle = getTitle();
+//        Log.e("ONCREATE",mDrawerTitle.toString());
         setContentView(R.layout.activity_main);
         initView();
-        initRecyclerView();
-
+        if (savedInstanceState == null) {
+            selectItem(0);
+        }
     }
 
+    @Override
+    public void setTitle(CharSequence title) {
+        mTitle = title;
+        getActionBar().setTitle(mTitle);
+    }
     private void initView() {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mToolbar.setTitle("^_^");
         setSupportActionBar(mToolbar);
 
 
-        /* 菜单的监听可以在toolbar里设置，也可以像ActionBar那样，通过下面的两个回调方法来处理 */
         mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -83,64 +81,75 @@ public class MainActivity extends ActionBarActivity {
 
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, mPlanetTitles));
-        mDrawerList.setOnItemClickListener(new OnItemClickListener() {
+        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // TODO Auto-generated method stub
                switch (position) {
+                   case 0:
+                       selectItem(0);
+                       break;
                    case 1:
+                       selectItem(1);
                        break;
                    case 2:
-                       break;
-                   case 3:
                         break;
-                   case 4:
-                        Intent intent = new Intent(MainActivity.this ,LoginActivity.class);
-                        startActivity(intent);
+                   case 3:
+                       selectItem(1);
                    default:
                         break;
                }
-                // 取出所点击的那一项的id
+
 
             }
         });
-       // mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open,
-                R.string.drawer_close);
-        mDrawerToggle.syncState();
+        mDrawerToggle = new ActionBarDrawerToggle(
+                this,
+                mDrawerLayout,
+                mToolbar,
+                R.string.drawer_open,
+                R.string.drawer_close) {
+                public void onDrawerClosed(View view) {
+                    //getActionBar().setTitle(mTitle);
+                    invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+                }
+
+                public void onDrawerOpened(View drawerView) {
+                    //().setTitle(mDrawerTitle.toString());
+                    invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+                }
+
+        };
+
         mDrawerLayout.setDrawerListener(mDrawerToggle);
     }
-    private void initData() {
-        mCllList = new ArrayList<Cll>();
-        for(int i = 0; i < Contants.imageIDs.length; i++) {
-            mCllList.add(new Cll(Contants.imageTitle[i],Contants.imageIDs[i],Contants.imageDesciption[i]));
+
+
+    private void selectItem(int position) {
+        FragmentManager fragmentManager = getFragmentManager();
+
+        switch (position) {
+            case 0 :
+                Page1Fragment fragment1 = new Page1Fragment();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment1).commit();
+                break;
+            case 1:
+                Page2Fragment fragment2 = new Page2Fragment();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment2).commit();
+                break;
         }
+        mDrawerList.setItemChecked(position, true);
+        mDrawerLayout.closeDrawer(mDrawerList);
 
     }
-    private void initRecyclerView() {
-        mRecyclerView = (RecyclerView)findViewById(R.id.rv_cll);
-        final StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(
-                2,StaggeredGridLayoutManager.VERTICAL
-        );
-        mRecyclerView.setLayoutManager(layoutManager);
-        mMooreRecyclerViewAdapter = new MooreRecyclerViewAdapter(this,mCllList);
-        mRecyclerView.setAdapter(mMooreRecyclerViewAdapter);
-
-        mMooreRecyclerViewAdapter.setOnCllTouchListener(
-                new OnCllTouchListener() {
-                    @Override
-                    public void onTouch(View v, Cll cll) {
-                        Intent i = new Intent(MainActivity.this, ContextActivity.class);
-                        i.putExtra(ContextActivity.IMAGE_URL, cll.getImgUrl());
-                        i.putExtra(ContextActivity.IMAGE_TITLE, cll.getTitle());
-                        i.putExtra(ContextActivity.IMAGE_DESCRIPTION, cll.getContent());
-                        startActivity(i);
-
-                    }
-                }
-        );
-
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        mDrawerToggle.syncState();
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -166,12 +175,14 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public void onResume() {
         super.onResume();
+        Log.e("OnResume","MainActivity OnResum...................................");
         MobclickAgent.onResume(this);
     }
 
     @Override
     public void onPause() {
         super.onPause();
+        Log.e("onPause", "MainActivity onPause...................................");
         MobclickAgent.onPause(this);
     }
 }
