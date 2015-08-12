@@ -11,15 +11,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.example.mooreliu.recyclerdemo.R;
 import com.example.mooreliu.recyclerdemo.adapter.MooreRecyclerViewAdapter;
 import com.example.mooreliu.recyclerdemo.model.Cll;
 import com.example.mooreliu.recyclerdemo.model.Contants;
 import com.example.mooreliu.recyclerdemo.widget.OnCllTouchListener;
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,7 +83,27 @@ public class MainActivity extends ActionBarActivity {
 
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, mPlanetTitles));
+        mDrawerList.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // TODO Auto-generated method stub
+               switch (position) {
+                   case 1:
+                       break;
+                   case 2:
+                       break;
+                   case 3:
+                        break;
+                   case 4:
+                        Intent intent = new Intent(MainActivity.this ,LoginActivity.class);
+                        startActivity(intent);
+                   default:
+                        break;
+               }
+                // 取出所点击的那一项的id
 
+            }
+        });
        // mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open,
                 R.string.drawer_close);
@@ -106,12 +129,11 @@ public class MainActivity extends ActionBarActivity {
         mMooreRecyclerViewAdapter.setOnCllTouchListener(
                 new OnCllTouchListener() {
                     @Override
-                    public void onTouch(View v ,Cll cll) {
-                        Intent i =new Intent(MainActivity.this,ContextActivity.class);
-                        i.putExtra(ContextActivity.IMAGE_URL,cll.getImgUrl() );
-                        i.putExtra(ContextActivity.IMAGE_URL,cll.getImgUrl() );
-                        i.putExtra(ContextActivity.IMAGE_URL,cll.getImgUrl() );
-
+                    public void onTouch(View v, Cll cll) {
+                        Intent i = new Intent(MainActivity.this, ContextActivity.class);
+                        i.putExtra(ContextActivity.IMAGE_URL, cll.getImgUrl());
+                        i.putExtra(ContextActivity.IMAGE_TITLE, cll.getTitle());
+                        i.putExtra(ContextActivity.IMAGE_DESCRIPTION, cll.getContent());
                         startActivity(i);
 
                     }
@@ -139,5 +161,17 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 }

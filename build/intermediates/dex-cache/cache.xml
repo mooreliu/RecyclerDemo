@@ -2,20 +2,6 @@
 <items version="2" >
 
     <item
-        jar="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
-        <dex dex="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\pre-dexed\debug\classes-641ec4b3bfeb34c83ffc5997cca6f7861af2f446.jar" />
-    </item>
-    <item
-        jar="C:\Users\mooreliu\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-60430e4b3431b2413d33f3a3a3e4d84674e1a4c0.jar" />
-    </item>
-    <item
         jar="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -30,11 +16,25 @@
         <dex dex="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\pre-dexed\debug\classes-94b586d8920ee1eb648e10bb7610056b4ee6131d.jar" />
     </item>
     <item
+        jar="C:\Users\mooreliu\.gradle\caches\modules-2\files-2.1\com.umeng.analytics\analytics\5.5.3\5d503ec571e2e98d972209afa203f94d11882c15\analytics-5.5.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="5d503ec571e2e98d972209afa203f94d11882c15">
+        <dex dex="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\pre-dexed\debug\analytics-5.5.3-62e1b8dff0b5656fbd8f2c413e28f48c99fd3d09.jar" />
+    </item>
+    <item
         jar="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
         <dex dex="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-e6f8776d6feae5db3fa3ead75d4cd38671287ec6.jar" />
+    </item>
+    <item
+        jar="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3abb4b88f5a8a0584a9b01d3170d7165f12f8588">
+        <dex dex="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\pre-dexed\debug\classes-3d546f3613816c3a0e2be69405d60ddcaebf0a53.jar" />
     </item>
     <item
         jar="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\exploded-aar\com.android.support\design\22.2.1\jars\classes.jar"
@@ -44,11 +44,18 @@
         <dex dex="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\pre-dexed\debug\classes-8dcdf05be22aef420e52e49a2ce311d3b05d72ac.jar" />
     </item>
     <item
-        jar="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.1\jars\classes.jar"
+        jar="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="3abb4b88f5a8a0584a9b01d3170d7165f12f8588">
-        <dex dex="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\pre-dexed\debug\classes-3d546f3613816c3a0e2be69405d60ddcaebf0a53.jar" />
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\pre-dexed\debug\classes-641ec4b3bfeb34c83ffc5997cca6f7861af2f446.jar" />
+    </item>
+    <item
+        jar="C:\Users\mooreliu\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="D:\AndroidDemo\RecyclerDemo\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-60430e4b3431b2413d33f3a3a3e4d84674e1a4c0.jar" />
     </item>
 
 </items>

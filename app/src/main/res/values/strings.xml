@@ -6,14 +6,14 @@
     <string name="drawer_open">打开</string>
     <string name="drawer_close">关闭</string>
     <string name="desc">关闭\n\n开启\n\n完事儿lll/n/n\n\n\n\n\n\n\n\nn\n\n\nullllll</string>
+    <string name="signin">登  \t\t\t\t\t\t陆</string>
+    <string name="id">\nID</string>
+    <string name="password">PASSWORD</string>
+    <string name="wrong_password_notification">密码不对哦，亲爱哒~</string>
+
     <string-array name="planets_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>Love U</item>
+        <item>Love Me</item>
+        <item>Love U More</item>
     </string-array>
 </resources>
