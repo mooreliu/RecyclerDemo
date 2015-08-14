@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <!--<include layout="@layout/toolbar" />-->
-    <android.support.design.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--<android.support.design.widget.CoordinatorLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_cll"
@@ -16,5 +16,5 @@
             android:paddingLeft="2.5dp"
             android:paddingRight="2.5dp"/>
 
-    </android.support.design.widget.CoordinatorLayout>
+    <!--</android.support.design.widget.CoordinatorLayout>-->
 </LinearLayout>

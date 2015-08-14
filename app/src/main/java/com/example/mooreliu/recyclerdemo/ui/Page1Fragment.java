@@ -39,7 +39,7 @@ public class Page1Fragment extends Fragment{
     private void initRecyclerView() {
         mRecyclerView = (RecyclerView)rootView.findViewById(R.id.rv_cll);
         final StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(
-                2,StaggeredGridLayoutManager.VERTICAL
+                1,StaggeredGridLayoutManager.VERTICAL
         );
         mRecyclerView.setLayoutManager(layoutManager);
         mMooreRecyclerViewAdapter = new Page1RecyclerViewAdapter(getActivity(),mCllList);

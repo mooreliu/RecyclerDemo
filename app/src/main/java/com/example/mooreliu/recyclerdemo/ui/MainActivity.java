@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,6 +18,8 @@ import android.widget.Toast;
 
 import com.example.mooreliu.recyclerdemo.R;
 import com.umeng.analytics.MobclickAgent;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -93,6 +96,7 @@ public class MainActivity extends ActionBarActivity {
                        selectItem(1);
                        break;
                    case 2:
+                       selectItem(2);
                         break;
                    case 3:
                        selectItem(1);
@@ -136,6 +140,10 @@ public class MainActivity extends ActionBarActivity {
             case 1:
                 Page2Fragment fragment2 = new Page2Fragment();
                 fragmentManager.beginTransaction().replace(R.id.content_frame, fragment2).commit();
+                break;
+            case 2:
+                Page3Fragment fragment3 = new Page3Fragment();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment3).commit();
                 break;
         }
         mDrawerList.setItemChecked(position, true);
@@ -184,5 +192,39 @@ public class MainActivity extends ActionBarActivity {
         super.onPause();
         Log.e("onPause", "MainActivity onPause...................................");
         MobclickAgent.onPause(this);
+    }
+
+    public interface MyTouchListener {
+        public void onTouchEvent(MotionEvent event);
+    }
+
+    // 保存MyTouchListener接口的列表
+    private ArrayList<MyTouchListener> myTouchListeners = new ArrayList<MainActivity.MyTouchListener>();
+
+    /**
+     * 提供给Fragment通过getActivity()方法来注册自己的触摸事件的方法
+     * @param listener
+     */
+    public void registerMyTouchListener(MyTouchListener listener) {
+        myTouchListeners.add(listener);
+    }
+
+    /**
+     * 提供给Fragment通过getActivity()方法来取消注册自己的触摸事件的方法
+     * @param listener
+     */
+    public void unRegisterMyTouchListener(MyTouchListener listener) {
+        myTouchListeners.remove(listener);
+    }
+
+    /**
+     * 分发触摸事件给所有注册了MyTouchListener的接口
+     */
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        for (MyTouchListener listener : myTouchListeners) {
+            listener.onTouchEvent(ev);
+        }
+        return super.dispatchTouchEvent(ev);
     }
 }
